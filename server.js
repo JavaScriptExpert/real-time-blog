@@ -25,7 +25,7 @@ app.set('view engine', 'pug')
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // Home route
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
   res.render('index', { feedsInstanceLocator })
 })
 
@@ -35,7 +35,7 @@ app.get('/posts/create', (req, res) => {
 })
 
 // Process adding post
-app.post('/posts', async (req, res) => {
+app.post('/posts', (req, res) => {
   // Feeds instance
   const feeds = new Feeds({
     instanceLocator: feedsInstanceLocator,
