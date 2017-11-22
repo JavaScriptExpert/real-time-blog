@@ -24,7 +24,7 @@ app.set('view engine', 'pug')
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // Home route
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
   res.render('index')
 })
 
@@ -34,7 +34,7 @@ app.get('/posts/create', (req, res) => {
 })
 
 // Process adding post
-app.post('/posts', async (req, res) => {})
+app.post('/posts', (req, res) => {})
 
 app.listen(3000, () => {
   console.log(`Server is running on http://localhost:${port}`)
