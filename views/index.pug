@@ -11,6 +11,7 @@ html(lang="en")
         margin: 0 auto;
         padding: 70px 15px;
       }
+    script(src="https://unpkg.com/pusher-feeds-client@0.10.0")
   body
     .container
       a(href="/posts/create") New Post
@@ -20,3 +21,31 @@ html(lang="en")
       hr
 
       #content
+
+    script.
+      const post = new Feeds({
+        instanceLocator: '#{feedsInstanceLocator}'
+      }).feed('post')
+
+      post.subscribe({
+        previousItems: 5,
+
+        onItem: ({ data }) => {
+          // create h2 element
+          const h2Element = document.createElement('h2')
+          // add class to h2 element
+          h2Element.classList.add('title', 'is-4')
+
+          // create anchor element
+          const anchorElement = document.createElement('a')
+          // set href attribute and content
+          anchorElement.setAttribute('href', `/${data.post.slug}`)
+          anchorElement.textContent = data.post.title
+
+          // add anchor element within the h2 element
+          h2Element.prepend(anchorElement)
+
+          // finally, add created element to the content section
+          document.querySelector('#content').prepend(h2Element)
+        }
+      })

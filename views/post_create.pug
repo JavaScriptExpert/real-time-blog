@@ -24,3 +24,21 @@ html(lang="en")
           div#editor
 
         button(type="submit") Save
+
+    script(src="https://cdn.rawgit.com/pusher/deliverfoo/us1/textsync.js")
+    script.
+      const textSyncInstance = new TextSync({
+        instanceLocator: '#{textSyncInstanceLocator}'
+      })
+
+      const textSyncEditor = textSyncInstance.createEditor({
+        docId: 'document-id',
+        element: '#editor'
+      })
+
+      // put editor's content into the textarea when form is submitted
+      document.querySelector('#editor').addEventListener('keyup', () => {
+        textSyncEditor.then(editor => {
+          document.querySelector('#content').value = editor.getText()
+        })
+      })
