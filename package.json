@@ -1,0 +1,28 @@
+{
+  "name": "real-time-blog",
+  "version": "1.0.0",
+  "description": "A real-time blog built with Pusher's TextSync and Feeds",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ammezie/real-time-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ammezie/real-time-blog/issues"
+  },
+  "homepage": "https://github.com/ammezie/real-time-blog#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "pug": "^2.0.0-rc.4",
+    "slugify": "^1.2.4"
+  }
+}
