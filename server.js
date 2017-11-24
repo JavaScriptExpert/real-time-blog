@@ -7,9 +7,6 @@ const slugify = require('slugify')
 require('dotenv').config()
 
 const port = process.env.PORT || 3000
-const textSyncInstanceLocator = process.env.TEXT_SYNC_INSTANCE_LOCATOR
-const feedsInstanceLocator = process.env.FEEDS_INSTANCE_LOCATOR
-const feedsSecretKey = process.env.FEEDS_SECRET_KEY
 
 // create our Express app
 const app = express()
